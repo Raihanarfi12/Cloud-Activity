@@ -9,6 +9,25 @@ This repository contains a collection of scripts to automate common cloud engine
 ### Clone Network Security Group (NSG)
 - Clone an existing NSG, including its security rules.
 - Helps replicate network configurations across different environments.
+- Script applied in clone-nsg.ps1
+- Tutorial :
+    - Paramater provided for this script :
+      - nsgOrigin (string,Mandatory) : Origin NSG Name.
+      - nsgDestination (string,Mandatory) : Destination of NSG Name.
+      - rgNameOrigin (string,Mandatory) : Resource Group Name of Origin NSG.
+      - rgNameDest (string,Mandatory) : Resource Group Name of Destination NSG.
+      - subscriptionOrigin (string,Mandatory) : Subscription Name of Origin NSG.
+      - subscriptionDestination (string,Optional) : Subscription Name of Destination NSG. If not specified, subscriptionDestination equal to subscriptionOrigin.
+    - Example
+```powershell
+.\clone-nsg.ps1 `
+    -nsgOrigin "my-nsg" `
+    -nsgDestination "my-new-nsg" `
+    -rgNameOrigin "rg-source" `
+    -rgNameDest "rg-destination" `
+    -subscriptionOrigin "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" `
+    -subscriptionDestination "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
 
 ### Create Virtual Machine (VM)
 - Automate the creation of new VMs with predefined settings.
